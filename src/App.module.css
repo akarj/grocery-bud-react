@@ -1,24 +1,37 @@
 .Background {
   text-align: center;
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #282c34;
   font-size: calc(10px + 2vmin);
+}
+
+.header {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
 
 .listSection {
   position: relative;
   top: 20vh;
   left: 25vw;
-
   border: 0.6em solid black;
-  background-color: white;
+  border-radius: 8px;
+  background-color: rgba(221, 84, 84, 0.774);
   width: 50vw;
 }
 
 .MainSection {
   min-height: 30vh;
   padding: 1em;
-  background-color: rgb(167, 45, 45);
+  background-color: rgb(100, 167, 45);
+  border-radius: 8px;
+}
+
+.ListItems {
+  background-color: coral;
+  border-radius: 8px;
+
+  width: 200px;
 }

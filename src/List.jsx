@@ -1,21 +1,25 @@
 import ListStyle from "./List.module.css";
-
+import Button from "react-bootstrap/Button";
 import React from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDeleteForever } from "react-icons/md";
 
-const List = ({}) => {
+const List = ({ item }) => {
   return (
     <>
-      <article className="grocery-item">
-        Grocery Item link
-        <button className="edit-btn">
-          <AiFillEdit />
-        </button>
-        <button className="delete-btn">
-          <MdDeleteForever />
-        </button>
-      </article>
+      <div className={ListStyle.article}>
+        <p className={ListStyle.p}>
+          <span className={ListStyle.span}> {item}</span>
+          <span className="ButtonSection">
+            <Button variant="outline-dark">
+              <AiFillEdit />
+            </Button>
+            <Button variant="outline-dark">
+              <MdDeleteForever />
+            </Button>
+          </span>
+        </p>
+      </div>
     </>
   );
 };
