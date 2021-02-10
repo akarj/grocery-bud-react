@@ -18,10 +18,10 @@ const getLocalStorage = () => {
 
 function App() {
   const [item, itemEdit] = useState("");
-  const [id, idSetter] = useState(0);
+  const [id, idSetter] = useState(null);
   const [buttonType, buttonTypehandler] = useState("submit");
-  const [list, addToList] = useState(getLocalStorage);
-  const [editingItemsID, editItem] = useState(null);
+  const [list, addToList] = useState(getLocalStorage());
+  const [editing, setEditItem] = useState(false);
   const [notification, notificationSetter] = useState({
     show: false,
     type: "",
@@ -30,15 +30,24 @@ function App() {
 
   const clickHandler = (e) => {
     e.preventDefault();
-
-    if (item) {
-      showNotification(true, "success", "item added to the list");
+    if (!item) showNotification(true, "danger", "please enter value");
+    else if (editing) {
+      addToList(
+        list.map((ITEM) => (ITEM.id === id ? { ...ITEM, item: item } : ITEM))
+      );
+      itemEdit("");
+      setEditItem(false);
+      idSetter(null);
+      showNotification(true, "success", "item Edited in the List");
+    } //
+    else if (item) {
       const newItem = {
         id: new Date().getTime().toString(),
         item: item,
       };
       addToList([...list, newItem]);
       itemEdit("");
+      showNotification(true, "success", "item added to the list");
     }
   };
 
@@ -46,14 +55,27 @@ function App() {
     notificationSetter({ show, type, message });
   };
 
+  const editItem = (id) => {
+    const itemAfterEdit = list.find((ITEM) => ITEM.id === id);
+    setEditItem(true);
+    idSetter(id);
+    itemEdit(itemAfterEdit.item);
+  };
+
+  const removeItem = (id) => {
+    addToList(list.filter((item) => item.id !== id));
+    showNotification(true, "success", "Item Deleted");
+  };
+
   const clearAllButtonHandler = () => {
-    showNotification(true, "success", "List Cleared");
     addToList([]);
+    showNotification(true, "success", "List Cleared");
   };
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
   }, [list]);
+
   return (
     <div className={AppStyles.Background}>
       <div className={AppStyles.listSection}>
@@ -84,8 +106,10 @@ function App() {
         </form>
         {list.length > 0 && (
           <div className="AppStyles.ListItems">
-            {list.map((item) => (
-              <List item={item.item} key={item.id} />
+            {list.map((ITEM) => (
+              <List key={ITEM.id} editItem={editItem} removeItem={removeItem}>
+                {ITEM}
+              </List>
             ))}
 
             <Button
