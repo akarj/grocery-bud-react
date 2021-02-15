@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import List from "./List";
 import Alert from "./Alert";
-import { MdAirlineSeatLegroomExtra } from "react-icons/md";
 
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
@@ -30,15 +29,16 @@ function App() {
 
   const clickHandler = (e) => {
     e.preventDefault();
-    if (!item) showNotification(true, "danger", "please enter value");
+    if (!item) showNotification(true, "danger", "Please enter an Item");
     else if (editing) {
       addToList(
         list.map((ITEM) => (ITEM.id === id ? { ...ITEM, item: item } : ITEM))
       );
+      buttonTypehandler("submit");
       itemEdit("");
       setEditItem(false);
       idSetter(null);
-      showNotification(true, "success", "item Edited in the List");
+      showNotification(true, "success", "Item Edited in the List");
     } //
     else if (item) {
       const newItem = {
@@ -47,7 +47,8 @@ function App() {
       };
       addToList([...list, newItem]);
       itemEdit("");
-      showNotification(true, "success", "item added to the list");
+
+      showNotification(true, "success", "Item added to the list");
     }
   };
 
@@ -60,6 +61,7 @@ function App() {
     setEditItem(true);
     idSetter(id);
     itemEdit(itemAfterEdit.item);
+    buttonTypehandler("Edit");
   };
 
   const removeItem = (id) => {

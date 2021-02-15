@@ -8,21 +8,25 @@ const List = ({ children, editItem, removeItem }) => {
   const { id, item } = children;
 
   return (
-    <>
-      <div className={ListStyle.article}>
-        <p className={ListStyle.p}>
-          <span className={ListStyle.span}> {item}</span>
-          <span className="ButtonSection">
-            <Button variant="outline-dark" onClick={() => editItem(id)}>
-              <AiFillEdit />
-            </Button>
-            <Button variant="outline-dark" onClick={() => removeItem(id)}>
-              <MdDeleteForever />
-            </Button>
-          </span>
-        </p>
+    <div className={ListStyle.listDivision}>
+      <div className={ListStyle.Text}>{item}</div>
+      <div className={ListStyle.buttons}>
+        <Button
+          variant="outline-dark"
+          className={ListStyle.edit}
+          onClick={() => editItem(id)}
+        >
+          <AiFillEdit />
+        </Button>
+        <Button
+          variant="outline-dark"
+          className={ListStyle.delete}
+          onClick={() => removeItem(id)}
+        >
+          <MdDeleteForever />
+        </Button>
       </div>
-    </>
+    </div>
   );
 };
 

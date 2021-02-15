@@ -1,3 +1,31 @@
-.p {
-  background-color: chartreuse;
+.listDivision {
+  margin: 20px;
+  padding: 10px;
+
+  border: 3px solid black;
+  border-radius: 8px;
+
+  display: grid;
+  grid-template-columns: 85% 15%;
+  background-color: burlywood;
+  font-size: 0.8em;
+  place-content: center;
+}
+
+.listDivision > div {
+  /* margin: 10px;
+  padding: 5px; */
+}
+
+.listDivision .Text {
+  margin-left: 1em;
+  text-align: left;
+  min-height: 0.1em;
+  place-content: center;
+}
+
+.buttons Button {
+  margin: 0.1em;
+  padding: 0.2em;
+  font-size: 1em;
 }

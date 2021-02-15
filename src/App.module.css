@@ -1,37 +1,96 @@
 .Background {
-  text-align: center;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #282c34;
+  text-align: center;
   font-size: calc(10px + 2vmin);
 }
 
 .header {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
+  margin: 0 0.25em 0 0em;
+  font-size: 1.5em;
+  font-weight: 750;
 }
 
 .listSection {
+  padding: 0.5rem;
+  min-height: 122px;
   position: relative;
-  top: 20vh;
+  top: 12vh;
   left: 25vw;
-  border: 0.6em solid black;
   border-radius: 8px;
-  background-color: rgba(221, 84, 84, 0.774);
+  background-color: rgba(209, 206, 206, 0.774);
   width: 50vw;
+  box-shadow: 0px 0px 8px 0px currentColor;
+}
+.listSection:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.24);
+}
+.MainSection {
+  margin: 0.5em;
+  padding: 1em;
 }
 
-.MainSection {
-  min-height: 30vh;
-  padding: 1em;
-  background-color: rgb(100, 167, 45);
-  border-radius: 8px;
+form.MainSection > input[type="text"] {
+  background-color: beige;
+  top: 0.18em;
+  position: relative;
+  margin-right: 0.25em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  height: 1.5em;
+  width: 15em;
+  border-radius: 0.15em;
 }
 
 .ListItems {
   background-color: coral;
   border-radius: 8px;
-
   width: 200px;
 }
+
+::-webkit-input-placeholder {
+  color: red;
+}
+
+:-ms-input-placeholder {
+  color: red;
+}
+
+::placeholder {
+  font-size: 0.9em;
+}
+
+form {
+  /* border: 3px solid black; */
+}
+/* 
+.rippleButton {
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  color: #fff;
+  background-color: #6200ee;
+  padding: 1rem 2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3); /* black with 30% opacity */
+/*  cursor: pointer;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+} */
