@@ -90,7 +90,6 @@ function App() {
             list={list}
           />
         )}
-        <span className="AppStyles"></span>
         <form className={AppStyles.MainSection} onSubmit={clickHandler}>
           <input
             type="text"

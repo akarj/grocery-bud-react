@@ -60,37 +60,38 @@ form.MainSection > input[type="text"] {
   font-size: 0.9em;
 }
 
-form {
-  /* border: 3px solid black; */
-}
-/* 
-.rippleButton {
-  position: relative;
-  overflow: hidden;
-  transition: background 400ms;
-  color: #fff;
-  background-color: #6200ee;
-  padding: 1rem 2rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
-  outline: 0;
-  border: 0;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3); /* black with 30% opacity */
-/*  cursor: pointer;
-}
-
-span.ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple 600ms linear;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
+@media screen and (max-width: 800px) {
+  .header {
+    margin: 0 0.25em 0 0em;
+    font-size: calc(22px + 2vmin);
+    font-weight: 750;
   }
-} */
+
+  .listSection {
+    padding: 0.5rem;
+    min-height: 122px;
+    position: relative;
+    top: 8vh;
+    left: 6vw;
+    border-radius: 8px;
+    background-color: rgba(209, 206, 206, 0.774);
+    min-width: 90vw;
+    box-shadow: 0px 0px 8px 0px currentColor;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .MainSection {
+    height: 5em;
+    margin: 0.1em;
+    padding: 1em;
+  }
+
+  form > input[type="text"] {
+    height: 7em;
+  }
+
+  .listSection {
+    top: 6.5em;
+  }
+}
